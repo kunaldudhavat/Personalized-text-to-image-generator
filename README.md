@@ -16,7 +16,7 @@ object concept, the model can generate high quality images of this unique object
 text guidance. This approach eliminates the need for any fine-tuning of the original diffusion
 model parameters, thereby facilitating more flexible and scalable model deployment. This key
 advantage distinguishes ViCo from most existing models that necessitate partial or full diffusion
-fine-tuning. In our 1project, we plan to implement a personalized text-to-image generation model
+fine-tuning. In this project, we plan to implement a personalized text-to-image generation model
 based on the methodology described in the paper.
 
 
