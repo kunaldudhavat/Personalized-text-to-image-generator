@@ -19,4 +19,5 @@ advantage distinguishes ViCo from most existing models that necessitate partial 
 fine-tuning. In our 1project, we plan to implement a personalized text-to-image generation model
 based on the methodology described in the paper.
 
-![image](https://github.com/kunaldudhavat/Personalized-text-to-image-generator/assets/54941117/24de6054-2c28-4182-9370-3ac83996fea3)
+
+![teaser](https://github.com/kunaldudhavat/Personalized-text-to-image-generator/assets/54941117/96598ddc-8094-4e89-b12b-a3619c2c983f)
