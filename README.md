@@ -35,25 +35,25 @@ In this section, we describe the steps required for setting up the model, fine t
 `conda env create -f environment.yml`
 4. Once the environment is created, you can activate the environment using the command:
 conda activate vico
-5. Now, that all the dependencies have been installed, we can fine tune the model using the following command:
+5. Now, that all the dependencies have been installed, we can fine tune the model using the following command: <br/>
 		`python main.py --base configs/v1-finetune.yaml -t \
 --actual_resume models/stable-diffusion-v1/sd-v1-4.ckpt \
 -n  
 --gpus GPUS 
 --data_root DATA-ROOT 
---init_word INIT-WORD`
+--init_word INIT-WORD`<br/>
 In the above command, replace:
 DATA-ROOT with the path to the folder containing a set of reference images
 GPUS with a list of indices of the GPUs you want to train on, separated by commas. For example, we have used a single GPU to train the model, so we provided the variable as –gpus 0,
 INIT-WORD with a word that generally describes the subject. Eg: Toy, Dog
 The training will run for about 10 minutes depending on the number of GPUs and the type of GPUs you are using. We have used a single A100 GPU, and the training ran for 11 minutes.
 Once, the training is complete, we can find the fine tuned checkpoints under a new folder called logs
-Now that the model is fine tuned on a given set of reference images, we can run inference on the fine tuned model to generate images of the subject under different contexts based on the text prompt given. For generating images using the fine tuned model, run the command below:
-python scripts/vico_model.py --ddim_eta 0.0  --n_samples 4 \
+Now that the model is fine tuned on a given set of reference images, we can run inference on the fine tuned model to generate images of the subject under different contexts based on the text prompt given. For generating images using the fine tuned model, run the command below: <br/>
+`python scripts/vico_model.py --ddim_eta 0.0  --n_samples 4 \
  --n_iter 2  --scale 7.5  --ddim_steps 50  \
 --ckpt_path models/stable-diffusion-v1/sd-v1-4.ckpt  \
---image_path IMAGE-PATH \ --ft_path CHECKPOINTS-PATH\
---load_step 399 --prompt TEXT-PROMPT --outdir OUTPUT-DIR
+--image_path IMAGE-PATH \ --ft_path CHECKPOINTS-PATH\ 
+--load_step 399 --prompt TEXT-PROMPT --outdir OUTPUT-DIR` <br/>
 
 In the above command, replace:
 IMAGE-PATH with the path to a reference image
