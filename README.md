@@ -21,3 +21,7 @@ based on the methodology described in the paper.
 
 
 ![teaser](https://github.com/kunaldudhavat/Personalized-text-to-image-generator/assets/54941117/96598ddc-8094-4e89-b12b-a3619c2c983f)
+
+![image](https://github.com/kunaldudhavat/Personalized-text-to-image-generator/assets/78093389/23d7aceb-b62b-41c9-8f14-e3acdc35af38)
+![image](https://github.com/kunaldudhavat/Personalized-text-to-image-generator/assets/78093389/bce6f3a0-fd84-4a3f-a292-2776616e980e)
+
