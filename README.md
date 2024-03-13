@@ -41,7 +41,7 @@ conda activate vico
 ```bash
 python main.py --base configs/v1-finetune.yaml -t \ 
 --actual_resume models/stable-diffusion-v1/sd-v1-4.ckpt \
--n  
+-n  ""
 --gpus GPUS 
 --data_root DATA-ROOT 
 --init_word INIT-WORD
@@ -57,8 +57,11 @@ Once, the training is complete, we can find the fine tuned checkpoints under a n
 python scripts/vico_model.py --ddim_eta 0.0  --n_samples 4 \
  --n_iter 2  --scale 7.5  --ddim_steps 50  \
 --ckpt_path models/stable-diffusion-v1/sd-v1-4.ckpt  \
---image_path IMAGE-PATH \ --ft_path CHECKPOINTS-PATH\ 
---load_step 399 --prompt TEXT-PROMPT --outdir OUTPUT-DIR
+--image_path IMAGE-PATH \
+--ft_path CHECKPOINTS-PATH \ 
+--load_step 399
+--prompt TEXT-PROMPT
+--outdir OUTPUT-DIR
 ```
 
 9. In the above command, replace:<br/>
