@@ -32,17 +32,19 @@ In this section, we describe the steps required for setting up the model, fine t
 1. Firstly download the zip file containing the repository and extract it. 
 2. Download the pretrained stable diffusion model from the link and save it under the folder models/stable-diffusion-v1/.
 3. Then setup a conda environment which has all dependencies necessary for the model to run. For setting up the environment, run the below command:<br/>
-`conda env create -f environment.yml`
-4. Once the environment is created, you can activate the environment using the command:
+```bash
+conda env create -f environment.yml
+```
+5. Once the environment is created, you can activate the environment using the command:
 conda activate vico
-5. Now, that all the dependencies have been installed, we can fine tune the model using the following command: <br/>
+6. Now, that all the dependencies have been installed, we can fine tune the model using the following command: <br/>
 ```bash
 python main.py --base configs/v1-finetune.yaml -t \ 
 --actual_resume models/stable-diffusion-v1/sd-v1-4.ckpt \
 -n  
 --gpus GPUS 
 --data_root DATA-ROOT 
---init_word INIT-WORD`<br/>
+--init_word INIT-WORD
 ```
 6. In the above command, replace:
 	DATA-ROOT with the path to the folder containing a set of reference images
@@ -51,11 +53,13 @@ python main.py --base configs/v1-finetune.yaml -t \
 7. The training will run for about 10 minutes depending on the number of GPUs and the type of GPUs you are using. We have used a single A100 GPU, and the training ran for 11 minutes.
 Once, the training is complete, we can find the fine tuned checkpoints under a new folder called logs
 8. Now that the model is fine tuned on a given set of reference images, we can run inference on the fine tuned model to generate images of the subject under different contexts based on the text prompt given. For generating images using the fine tuned model, run the command below: <br/>
-`python scripts/vico_model.py --ddim_eta 0.0  --n_samples 4 \
+```bash
+python scripts/vico_model.py --ddim_eta 0.0  --n_samples 4 \
  --n_iter 2  --scale 7.5  --ddim_steps 50  \
 --ckpt_path models/stable-diffusion-v1/sd-v1-4.ckpt  \
 --image_path IMAGE-PATH \ --ft_path CHECKPOINTS-PATH\ 
---load_step 399 --prompt TEXT-PROMPT --outdir OUTPUT-DIR` <br/>
+--load_step 399 --prompt TEXT-PROMPT --outdir OUTPUT-DIR
+```
 
 9. In the above command, replace:<br/>
 	IMAGE-PATH with the path to a reference image <br/>
