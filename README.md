@@ -31,7 +31,7 @@ In this section, we describe the steps required for setting up the model, fine t
 
 1. Firstly download the zip file containing the repository and extract it. 
 2. Download the pretrained stable diffusion model from the link and save it under the folder models/stable-diffusion-v1/.
-3. Then setup a conda environment which has all dependencies necessary for the model to run. For setting up the environment, run the below command:
+3. Then setup a conda environment which has all dependencies necessary for the model to run. For setting up the environment, run the below command:<br/>
 `conda env create -f environment.yml`
 4. Once the environment is created, you can activate the environment using the command:
 conda activate vico
@@ -55,7 +55,7 @@ Once, the training is complete, we can find the fine tuned checkpoints under a n
 --image_path IMAGE-PATH \ --ft_path CHECKPOINTS-PATH\ 
 --load_step 399 --prompt TEXT-PROMPT --outdir OUTPUT-DIR` <br/>
 
-9. In the above command, replace:<br\>
+9. In the above command, replace:<br/>
 	IMAGE-PATH with the path to a reference image <br/>
 	CHECKPOINTS-PATH to a path containing the folder checkpoints <br/>
 	TEXT-PROMPT with your desired text prompt <br/>
