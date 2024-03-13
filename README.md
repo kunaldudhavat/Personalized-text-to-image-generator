@@ -25,3 +25,42 @@ based on the methodology described in the paper.
 ![image](https://github.com/kunaldudhavat/Personalized-text-to-image-generator/assets/78093389/23d7aceb-b62b-41c9-8f14-e3acdc35af38)
 ![image](https://github.com/kunaldudhavat/Personalized-text-to-image-generator/assets/78093389/bce6f3a0-fd84-4a3f-a292-2776616e980e)
 
+**Running the model:**
+
+In this section, we describe the steps required for setting up the model, fine tuning it on a set of images featuring a novel subject and subsequently utilizing the fine-tuned model to generate creative images of the subject in diverse contexts, guided by textual prompts.
+
+1. Firstly download the zip file containing the repository and extract it. 
+2. Download the pretrained stable diffusion model from the link and save it under the folder models/stable-diffusion-v1/.
+3. Then setup a conda environment which has all dependencies necessary for the model to run. For setting up the environment, run the below command:
+`conda env create -f environment.yml`
+4. Once the environment is created, you can activate the environment using the command:
+conda activate vico
+5. Now, that all the dependencies have been installed, we can fine tune the model using the following command:
+		`python main.py --base configs/v1-finetune.yaml -t \
+--actual_resume models/stable-diffusion-v1/sd-v1-4.ckpt \
+-n  
+--gpus GPUS 
+--data_root DATA-ROOT 
+--init_word INIT-WORD`
+In the above command, replace:
+DATA-ROOT with the path to the folder containing a set of reference images
+GPUS with a list of indices of the GPUs you want to train on, separated by commas. For example, we have used a single GPU to train the model, so we provided the variable as –gpus 0,
+INIT-WORD with a word that generally describes the subject. Eg: Toy, Dog
+The training will run for about 10 minutes depending on the number of GPUs and the type of GPUs you are using. We have used a single A100 GPU, and the training ran for 11 minutes.
+Once, the training is complete, we can find the fine tuned checkpoints under a new folder called logs
+Now that the model is fine tuned on a given set of reference images, we can run inference on the fine tuned model to generate images of the subject under different contexts based on the text prompt given. For generating images using the fine tuned model, run the command below:
+python scripts/vico_model.py --ddim_eta 0.0  --n_samples 4 \
+ --n_iter 2  --scale 7.5  --ddim_steps 50  \
+--ckpt_path models/stable-diffusion-v1/sd-v1-4.ckpt  \
+--image_path IMAGE-PATH \ --ft_path CHECKPOINTS-PATH\
+--load_step 399 --prompt TEXT-PROMPT --outdir OUTPUT-DIR
+
+In the above command, replace:
+IMAGE-PATH with the path to a reference image
+CHECKPOINTS-PATH to a path containing the folder checkpoints
+TEXT-PROMPT with your desired text prompt
+OUTPUT-DIR with the path to the folder in which you want the generated images to be saved.
+We ran the model fine tuning and inference on a A100 GPU using Google Colab Pro. We have attached a Colab notebook to run the model on Google Colab. 
+
+
+You can use the colab file Personalized Text-to-Image Generator for doing the same steps.
