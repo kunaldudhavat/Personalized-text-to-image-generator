@@ -56,11 +56,11 @@ Once, the training is complete, we can find the fine tuned checkpoints under a n
 --load_step 399 --prompt TEXT-PROMPT --outdir OUTPUT-DIR` <br/>
 
 9. In the above command, replace:<br\>
-	IMAGE-PATH with the path to a reference image <br\>
-	CHECKPOINTS-PATH to a path containing the folder checkpoints <br\>
-	TEXT-PROMPT with your desired text prompt <br\>
-	OUTPUT-DIR with the path to the folder in which you want the generated images to be saved. <br\>
-We ran the model fine tuning and inference on a A100 GPU using Google Colab Pro. We have attached a Colab notebook to run the model on Google Colab. <br\>
+	IMAGE-PATH with the path to a reference image <br/>
+	CHECKPOINTS-PATH to a path containing the folder checkpoints <br/>
+	TEXT-PROMPT with your desired text prompt <br/>
+	OUTPUT-DIR with the path to the folder in which you want the generated images to be saved. <br/>
+We ran the model fine tuning and inference on a A100 GPU using Google Colab Pro. We have attached a Colab notebook to run the model on Google Colab. <br/>
 
 
 You can use the colab file Personalized Text-to-Image Generator for doing the same steps.
