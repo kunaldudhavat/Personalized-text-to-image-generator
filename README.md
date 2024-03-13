@@ -36,12 +36,14 @@ In this section, we describe the steps required for setting up the model, fine t
 4. Once the environment is created, you can activate the environment using the command:
 conda activate vico
 5. Now, that all the dependencies have been installed, we can fine tune the model using the following command: <br/>
-		`python main.py --base configs/v1-finetune.yaml -t \ 
+```bash
+python main.py --base configs/v1-finetune.yaml -t \ 
 --actual_resume models/stable-diffusion-v1/sd-v1-4.ckpt \
 -n  
 --gpus GPUS 
 --data_root DATA-ROOT 
 --init_word INIT-WORD`<br/>
+```
 6. In the above command, replace:
 	DATA-ROOT with the path to the folder containing a set of reference images
 	GPUS with a list of indices of the GPUs you want to train on, separated by commas. For example, we have used a single GPU to train the model, so we provided the variable as –gpus 0,
